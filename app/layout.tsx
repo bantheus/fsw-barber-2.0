@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
-import { Inter as FontSans } from "next/font/google"
-import "./globals.css"
+import { Nunito as FontSans } from "next/font/google"
 import { cn } from "./_lib/utils"
+import "./globals.css"
 
 const fontSans = FontSans({
   subsets: ["latin"],
