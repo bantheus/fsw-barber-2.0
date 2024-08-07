@@ -12,6 +12,11 @@ import { db } from "./_lib/prisma"
 
 export default async function Home() {
   const baberShops = await db.barberShop.findMany({})
+  const popularBarberShops = await db.barberShop.findMany({
+    orderBy: {
+      name: "desc",
+    },
+  })
 
   return (
     <>
@@ -77,6 +82,18 @@ export default async function Home() {
 
       <div className="flex gap-4 overflow-auto px-5 [&::-webkit-scrollbar]:hidden">
         {baberShops.map((barbershop) => (
+          <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+        ))}
+      </div>
+
+      <div className="p-5">
+        <div className="mb-3 mt-6">
+          <Title text="Populares" />
+        </div>
+      </div>
+
+      <div className="flex gap-4 overflow-auto px-5 [&::-webkit-scrollbar]:hidden">
+        {popularBarberShops.map((barbershop) => (
           <BarbershopItem key={barbershop.id} barbershop={barbershop} />
         ))}
       </div>
