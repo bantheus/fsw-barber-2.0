@@ -1,6 +1,7 @@
 import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import BarbershopItem from "./_components/barbershop-item"
+import Footer from "./_components/footer"
 import Header from "./_components/header"
 import Title from "./_components/title"
 import { Avatar, AvatarFallback, AvatarImage } from "./_components/ui/avatar"
@@ -97,6 +98,10 @@ export default async function Home() {
           <BarbershopItem key={barbershop.id} barbershop={barbershop} />
         ))}
       </div>
+
+      <footer className="mt-10">
+        <Footer />
+      </footer>
     </>
   )
 }
